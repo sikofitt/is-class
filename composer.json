@@ -1,0 +1,33 @@
+{
+    "name": "sikofitt/is_class",
+    "description": "Creates a function for is_class",
+    "type": "library",
+    "require": {
+      "php":">=5.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.8",
+        "friendsofphp/php-cs-fixer": "^1.12"
+    },
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "sikofitt",
+            "email": "sikofitt@gmail.com"
+        }
+    ],
+
+    "autoload": {
+      "psr-4": {
+        "Sikofitt\\Functions\\":"src/Sikofitt/Functions"
+      },
+      "files": [
+        "bootstrap.php"
+      ]
+    },
+    "autoload-dev": {
+      "psr-4": {
+        "Sikofitt\\Tests\\":"Tests"
+      }
+    }
+}

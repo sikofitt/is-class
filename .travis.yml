@@ -1,0 +1,25 @@
+language: php
+
+php:
+  - 5.4
+  - 5.5
+  - 5.6
+  - 7.0
+  - 7.1
+  - hhvm
+  - nightly
+
+install:
+  - composer self-update
+  - composer remove --dev friendsofphp/php-cs-fixer
+  - composer install
+
+matrix:
+  allow_failures:
+    - php: hhvm
+
+script: phpunit --configuration phpunit.xml --coverage-text
+
+branches:
+  only:
+  - v1.0.0
