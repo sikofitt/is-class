@@ -1,6 +1,6 @@
 # is-class
 
-[![Build Status](https://travis-ci.org/sikofitt/is-class.svg?branch=master)](https://travis-ci.org/sikofitt/is-class)
+[![Build Status](https://travis-ci.org/sikofitt/is-class.svg?branch=v1.0.0)](https://travis-ci.org/sikofitt/is-class)
 
 This program simply does one thing.
 
