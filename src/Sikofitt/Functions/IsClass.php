@@ -1,21 +1,14 @@
-<?php
+<?php declare(strict_types=1);
 
-/**
- * is-class - Creates a missing is_class function
- * Copyleft (C) <2016>  <sikofitt>.
+/*
+ * Copyright (c) 2020  https://rewiv.com sikofitt@gmail.com
  *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
+ * This Source Code Form is subject to the
+ * terms of the Mozilla Public License, v. 2.0.
  *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
+ * If a copy of the MPL was not distributed with this file,
+ * You can obtain one at https://mozilla.org/MPL/2.0/.
  *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 namespace Sikofitt\Functions;
@@ -23,7 +16,7 @@ namespace Sikofitt\Functions;
 /**
  * Class IsClass.
  */
-class IsClass
+final class IsClass
 {
     /**
    * @param mixed $class
@@ -34,19 +27,18 @@ class IsClass
    * @return bool
    *  True if this is a class
    */
-  public static function isClass($class, $strict = false)
-  {
-      try {
-          $reflection = new \ReflectionClass($class);
-      } catch (\Exception $e) {
-          return false;
-      }
-      if (true === $strict) {
-          return !$reflection->isTrait() &&
-      !$reflection->isInterface() &&
-      !$reflection->isInstance(new \stdClass());
-      } else {
-          return !$reflection->isInstance(new \stdClass());
-      }
-  }
+    public static function isClass($class, bool $strict = false): bool
+    {
+        try {
+            $reflection = new \ReflectionClass($class);
+        } catch (\Exception $e) {
+            return false;
+        }
+
+        if (false === $strict) {
+            return $reflection->getName() !== \stdClass::class;
+        }
+
+        return !$reflection->isTrait() && !$reflection->isInterface() && $reflection->getName() !== \stdClass::class;
+    }
 }
