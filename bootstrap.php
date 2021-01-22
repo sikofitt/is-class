@@ -1,33 +1,30 @@
-<?php
+<?php declare(strict_types=1);
 
-/**
- * is-class - Creates a missing is_class function
- * Copyleft (C) <2016>  <sikofitt>
+/*
+ * Copyright (c) 2020  https://rewiv.com sikofitt@gmail.com
  *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
+ * This Source Code Form is subject to the
+ * terms of the Mozilla Public License, v. 2.0.
  *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
+ * If a copy of the MPL was not distributed with this file,
+ * You can obtain one at https://mozilla.org/MPL/2.0/.
  *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-/**
- * @param mixed $variable
- *    The variable in question.
- * @param bool $strict
- *    if strict is true, don't count
- *    Interfaces and Traits as classes.
- * @return bool
- *    True if $variable is a class
- */
-function is_class($variable, $strict = false)
-{
-    return \Sikofitt\Functions\IsClass::isClass($variable, $strict);
+use Sikofitt\Functions\IsClass;
+ 
+if (!function_exists('is_class')) {
+    /**
+    * @param mixed $variable
+    *    The variable in question.
+    * @param bool $strict
+    *    if strict is true, don't count
+    *    Interfaces and Traits as classes.
+    * @return bool
+    *    True if $variable is a class
+    */
+    function is_class($variable, $strict = false)
+    {
+        return IsClass::isClass($variable, $strict);
+    }
 }

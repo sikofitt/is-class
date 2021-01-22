@@ -1,7 +1,5 @@
 # is-class
 
-[![Build Status](https://travis-ci.org/sikofitt/is-class.svg?branch=master)](https://travis-ci.org/sikofitt/is-class)
-
 This program simply does one thing.
 
 It creates a function ```is_class``` to go along with the many other 'is' functions.
@@ -13,7 +11,7 @@ It creates a function ```is_class``` to go along with the many other 'is' functi
 This function can be called as `is_class($class)`, which will return `true` for `interfaces` or `traits`.
 The second way is `is_class($class, true)`, where true means strict, which will return `false` if anything is an `interface` or `trait`.
 
-The function always returns false for `\stdClass`, you can use `is_object` for that.
+The function always returns false for ```\stdClass```, you can use `is_object` for that, unless you extend ```\stdClass```.
 
 ## Tests
 
