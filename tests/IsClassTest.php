@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 /*
  * Copyright (c) 2020  https://rewiv.com sikofitt@gmail.com
@@ -37,7 +39,7 @@ class IsClassTest extends TestCase
 
     public function testClassSuccess(): void
     {
-        $class = new class extends \stdClass {
+        $class = new class () extends \stdClass {
         };
         $this->assertTrue(is_class($class));
         $this->assertTrue(is_class($this->testClass));
