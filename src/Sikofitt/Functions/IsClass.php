@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 /*
  * Copyright (c) 2020  https://rewiv.com sikofitt@gmail.com
