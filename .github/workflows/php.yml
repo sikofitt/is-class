@@ -15,8 +15,8 @@ jobs:
       - uses: antfroger/php-version-action@v1
         id: versions
         with:
-          unstable: true # set to false (or remove the param) to exclude unreleased versions
-          unsupported: false # set to true (or remove the param) to include unsupported versions
+          unstable: true 
+          unsupported: false
 
   test:
     name: Test PHP ${{ matrix.php-version }} on ${{ matrix.os }}
@@ -25,7 +25,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-latest] # add more os
+        os: [ubuntu-latest, macos-latest, windows-latest] # add more os
         php-version: ${{ fromJSON(needs.php-versions.outputs.matrix) }}
 
     steps:
@@ -42,5 +42,5 @@ jobs:
       - name: Test
         run: |
           composer install --no-interaction
-          vendor/bin/phpunit --configuration phpunit.xml.dist
-        
+          vendor/bin/phpunit --configuration=phpunit.xml.dist --coverage-text --colors=never
+          
