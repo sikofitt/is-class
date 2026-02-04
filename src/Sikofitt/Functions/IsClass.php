@@ -15,6 +15,8 @@ declare(strict_types=1);
 
 namespace Sikofitt\Functions;
 
+use ReflectionClass;
+
 /**
  * Class IsClass.
  */
@@ -29,10 +31,10 @@ final class IsClass
    * @return bool
    *  True if this is a class
    */
-    public static function isClass($class, bool $strict = false): bool
+    public static function isClass(object|string $objectOrString, bool $strict = false): bool
     {
         try {
-            $reflection = new \ReflectionClass($class);
+            $reflection = new \ReflectionClass($objectOrString);
         } catch (\Exception $e) {
             return false;
         }
@@ -41,6 +43,6 @@ final class IsClass
             return $reflection->getName() !== \stdClass::class;
         }
 
-        return !$reflection->isTrait() && !$reflection->isInterface() && $reflection->getName() !== \stdClass::class;
+        return !$reflection->isTrait() && !$reflection->isInterface() && !$reflection->isEnum() && $reflection->getName() !== \stdClass::class;
     }
 }
