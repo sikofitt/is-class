@@ -19,14 +19,16 @@ use PHPUnit\Framework\TestCase;
 
 class IsClassTest extends TestCase
 {
-    private $testClass;
-    private $stdClass;
-
+    private readonly object $testClass;
+    private readonly object $stdClass;
+    private readonly TestEnum $enum;
+    
     public function setUp(): void
     {
         $this->testClass = new \ArrayObject();
         $this->stdClass = new \stdClass();
-
+        $this->enum = TestEnum::ONE;
+        
         parent::setUp();
     }
 
@@ -35,6 +37,7 @@ class IsClassTest extends TestCase
         $this->assertFalse(is_class($this->stdClass));
         $this->assertFalse(is_class('\ArrayAccess', true));
         $this->assertFalse(is_class('test'));
+        $this->assertFalse(is_class($this->enum, true));
     }
 
     public function testClassSuccess(): void
@@ -44,5 +47,6 @@ class IsClassTest extends TestCase
         $this->assertTrue(is_class($class));
         $this->assertTrue(is_class($this->testClass));
         $this->assertTrue(is_class('\ArrayAccess'));
+        $this->assertTrue(is_class($this->enum));
     }
 }
