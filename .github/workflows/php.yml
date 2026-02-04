@@ -16,7 +16,7 @@ jobs:
         id: versions
         with:
           unstable: true # set to false (or remove the param) to exclude unreleased versions
-          unsupported: true # set to true (or remove the param) to include unsupported versions
+          unsupported: false # set to true (or remove the param) to include unsupported versions
 
   test:
     name: Test PHP ${{ matrix.php-version }} on ${{ matrix.os }}
