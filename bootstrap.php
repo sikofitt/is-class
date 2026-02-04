@@ -23,8 +23,8 @@ if (!function_exists('is_class')) {
     * @return bool
     *    True if $variable is a class
     */
-    function is_class($variable, $strict = false)
+    function is_class(object|string $objectOrString, bool $strict = false)
     {
-        return IsClass::isClass($variable, $strict);
+        return IsClass::isClass($objectOrString, $strict);
     }
 }
