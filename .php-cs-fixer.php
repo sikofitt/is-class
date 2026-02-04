@@ -8,8 +8,8 @@ $finder = PhpCsFixer\Finder::create()
 $config = new PhpCsFixer\Config();
 return $config->setRules([
     '@PSR12' => true,
-    '@PHP81Migration' => true,
-    '@PHP80Migration:risky' => true,
+    '@PHP8x2Migration' => true,
+    '@PHP8x2Migration:risky' => true,
     'strict_param' => true,
     'array_syntax' => ['syntax' => 'short'],
 ])->setRiskyAllowed(true)

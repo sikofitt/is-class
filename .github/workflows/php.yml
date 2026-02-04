@@ -42,6 +42,5 @@ jobs:
       - name: Test
         run: |
           composer install --no-interaction
-          vendor/bin/phpunit --configuration phpunit.xml.dist --coverage-text --no-color
+          vendor/bin/phpunit --configuration=phpunit.xml.dist --coverage-text --colors=never
           
-        
