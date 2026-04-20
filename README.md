@@ -8,8 +8,9 @@ It creates a function ```is_class``` to go along with the many other 'is' functi
 
 `is_a` exists, but you need to know the name of the class in question.  You simply can't call `is_a($class);`.
 
-This function can be called as `is_class($class)`, which will return `true` for `interfaces` or `traits`.
-The second way is `is_class($class, true)`, where true means strict, which will return `false` if anything is an `interface` or `trait`.
+This function can be called as `is_class($class)`, which will return `true` for `interfaces`, `traits` or `enums`.
+
+The second way is `is_class($class, true)`, where true means strict, which will return `false` if anything is an `interface`, `trait` or `enum`.
 
 The function always returns false for ```\stdClass```, you can use `is_object` for that, unless you extend ```\stdClass```.
 
